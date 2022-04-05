@@ -27,6 +27,9 @@ router.put('/archiveProduct/:id', verify, verifyAdmin, productControllers.archiv
 // view all archiveProduct
 router.get('/viewArchive', verify, verifyAdmin, productControllers.viewArchive)
 
+// activate a product 
+router.put('/activateProduct/:id', verify, verifyAdmin, productControllers.activateProduct)
+
 
 
 

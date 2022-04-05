@@ -33,7 +33,7 @@ module.exports.registerUser = (req, res) => {
 				return res.send("Email is already taken")
 			}
 
-		});
+		})
 
 
 		/*newUser.save()
@@ -151,3 +151,11 @@ module.exports.retrieveOrders = (req, res) => {
 		.catch(err => res.send(err));
 };
 
+/*module.exports.retrieveAllOrders = (req, res) => {
+
+	User.find({})
+	.then(result => res.send(result)) A
+	.catch(error => res.send(error));
+
+}
+*/

@@ -11,13 +11,16 @@ const orderSchema = new mongoose.Schema({
 
 				productId : {
 					type : String,
-					required : [true, "product id is required"]
+					required : [true, "product id is required"],
+
 				},
 
 				orderDate : {
 					type : Date,
 					default : new Date()
 				}
+
+				
 });
 
 module.exports = mongoose.model("Order", orderSchema);

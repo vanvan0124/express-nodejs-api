@@ -67,3 +67,13 @@ module.exports.viewArchive = (req, res) => {
 
 };
 
+module.exports.activateProduct = (req, res) => {
+
+		let update = {
+			isActive : true
+		};
+		Product.findByIdAndUpdate(req.params.id, update, {new : true})
+		.then(result => res.send(result))
+		.catch(error => res.send(error));
+
+};
