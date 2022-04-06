@@ -34,12 +34,30 @@ const userSchema = new mongoose.Schema({
 
 		},
 
+		cart : [
+
+			{
+
+					productId : {
+					type : String,
+					required : [true, "product id i required"]
+				},
+
+					dateAddedtoCart : {
+						type : Date,
+						default :new Date()
+				}
+				
+			}
+
+		],
+
 		purchased : [
 			{
 				productId : {
 					type : String,
-					required : [true, "ProductId is required"]
-
+					required : [true, "ProductId is required"],
+					
 				},
 
 				datePurchased : {

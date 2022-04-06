@@ -147,6 +147,7 @@ module.exports.order = async (req, res) => {
 module.exports.retrieveOrders = (req, res) => {
 
 		User.findById(req.user.id)
+		
 		.then(result => res.send(result.purchased))
 		.catch(err => res.send(err));
 };
@@ -159,3 +160,11 @@ module.exports.retrieveOrders = (req, res) => {
 
 }
 */
+
+module.exports.viewMyCart = (req, res) => {
+
+
+	User.findById(req.user.id)
+	.then(result => res.send(result.cart))
+	.catch(error => res.send(error))
+}

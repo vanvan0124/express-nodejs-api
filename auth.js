@@ -23,7 +23,7 @@ module.exports.verify = (req, res, next) => {
 	
 	if(!token){
 
-		return res.send({auth: "Failed. No Token"})
+		return res.send({auth: "You need to Login"})
 	} else {
 
 		token = token.slice(7, token.length)

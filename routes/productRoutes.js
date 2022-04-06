@@ -30,6 +30,12 @@ router.get('/viewArchive', verify, verifyAdmin, productControllers.viewArchive)
 // activate a product 
 router.put('/activateProduct/:id', verify, verifyAdmin, productControllers.activateProduct)
 
+// search a product by name
+router.get('/findProduct', productControllers.findProduct)
+
+
+router.post('/addToCart', verify, productControllers.addToCart)
+
 
 
 

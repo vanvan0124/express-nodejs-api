@@ -31,4 +31,13 @@ router.post('/order', verify, userControllers.order)
 
 router.get('/retrieveOrders', verify, userControllers.retrieveOrders);
 
+// view my  cart
+
+
+router.get('/viewMyCart', verify, userControllers.viewMyCart)
+
+
+
+
+
 module.exports = router;	

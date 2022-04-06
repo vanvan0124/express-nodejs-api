@@ -1,5 +1,7 @@
 const Product = require("../models/Products")
 
+const User = require("../models/User")
+
 module.exports.createProducts = (req, res) => {
 
 			let newProduct = new Product({
@@ -75,5 +77,62 @@ module.exports.activateProduct = (req, res) => {
 		Product.findByIdAndUpdate(req.params.id, update, {new : true})
 		.then(result => res.send(result))
 		.catch(error => res.send(error));
+
+};
+
+module.exports.findProduct = (req, res) => {
+
+		Product.find({name : {$regex : req.body.name, $options : '$i'}})
+		.then( result => {
+
+			if(result.length === 0) {
+
+				return res.send('No product found')
+			
+			} else {
+				return res.send(result)
+			}
+
+		})
+		.catch(error => res.send(error))
+
+};
+
+
+
+module.exports.addToCart = async (req, res) => {
+
+				if(req.user.isAdmin) {
+					return res.send("Action Forbidden")
+
+				};
+
+
+
+				let isCartUpdated = await User.findById(req.user.id)
+				.then(user => {
+
+				let newCart = {
+
+					productId : req.body.productId
+				}
+
+				user.cart.push(newCart);
+
+				return user.save().then(user => true).catch(err => err.message)
+				});
+
+
+				if(isCartUpdated !== true){
+				return res.send({message : isCartUpdated})	
+
+				};
+
+				if(isCartUpdated) {
+
+				return res.send({message : 'Item added to Cart!'})
+				}
+
+
 
 };
