@@ -8,6 +8,12 @@ const orderSchema = new mongoose.Schema({
 					type : String,
 					required : [true, "order id is required"]
 				},
+				
+				buyerEmail : {
+					type : String,
+					required : [true, "email is required"]
+
+				},
 
 				productId : {
 					type : String,

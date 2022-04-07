@@ -12,7 +12,7 @@ module.exports.createProducts = (req, res) => {
 			});
 
 			newProduct.save()
-			.then(user => res.send(user))
+			.then(user => res.send('Created Product Successfully'))
 			.catch(error => res.send(error));
 
 };

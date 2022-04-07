@@ -109,12 +109,12 @@ module.exports.order = async (req, res) => {
 				let isUserUpdated = await User.findById(req.user.id)
 				.then(user => {
 
-				let newPurchased = {
+				let newcheckOut = {
 
 					productId : req.body.productId
 				}
 
-				user.purchased.push(newPurchased);
+				user.checkOut.push(newcheckOut);
 
 				return user.save().then(user => true).catch(err => err.message)
 				});
@@ -128,6 +128,7 @@ module.exports.order = async (req, res) => {
 				let newOrder = await new Order({
 
 					buyerId : req.user.id,
+					buyerEmail : req.user.email,
 					productId : req.body.productId
 				})
 
@@ -148,7 +149,7 @@ module.exports.retrieveOrders = (req, res) => {
 
 		User.findById(req.user.id)
 		
-		.then(result => res.send(result.purchased))
+		.then(result => res.send(result.checkOut))
 		.catch(err => res.send(err));
 };
 

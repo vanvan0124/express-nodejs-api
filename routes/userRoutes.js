@@ -19,19 +19,19 @@ router.post('/register', userControllers.registerUser);
 router.post('/login', userControllers.userLogIn);
 
 // view all users
-router.get('/', userControllers.viewAllUsers)
+router.get('/',verify, verifyAdmin, userControllers.viewAllUsers)
 
 //update regular user to admin
 router.put('/updateToAdmin/:id', verify, verifyAdmin, userControllers.updateToAdmin);
 
 // create order 
-router.post('/order', verify, userControllers.order)
+router.post('/checkOut', verify, userControllers.order)
 
 // retrieve user's list of order
 
 router.get('/retrieveOrders', verify, userControllers.retrieveOrders);
 
-// view my  cart
+
 
 
 router.get('/viewMyCart', verify, userControllers.viewMyCart)

@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
@@ -30,3 +30,5 @@ app.use('/orders', orderRoutes);
 
 
 app.listen(port, () => console.log(`Server is running at port ${port}`))
+
+//https://fast-hollows-37257.herokuapp.com/ 

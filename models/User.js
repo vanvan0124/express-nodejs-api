@@ -52,7 +52,7 @@ const userSchema = new mongoose.Schema({
 
 		],
 
-		purchased : [
+		checkOut : [
 			{
 				productId : {
 					type : String,
